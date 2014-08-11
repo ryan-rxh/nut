@@ -1,5 +1,6 @@
 package com.nut.aspect;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -13,7 +14,8 @@ public class LogAspect {
 	}
 	
 	@Before(value="log()")
-	public void doBefore(){
-		System.out.println("do something befor");
+	public void doBefore(JoinPoint jp){
+		
+		System.out.println(jp.getTarget().getClass() + " method " + jp.getSignature().getName() + " is called.");
 	}
 }

@@ -18,11 +18,15 @@ public class UserServiceImpl implements IUserService {
 	}
 
 	public UserInfo findUser(String userId) {
-		return null;
+		return userDao.findUser(userId);
 	}
 
 	public boolean validateUser(UserInfo user) {
 		return userDao.validateUser(user);
+	}
+
+	public boolean validateUserId(String userId) {
+		return userDao.validateUserId(userId);
 	}
 
 }

@@ -32,4 +32,9 @@ public class UserDaoImpl implements IUserDao {
 		return userInfo;
 	}
 
+	public boolean validateUserId(String userId) {
+		UserInfo user = hibernateTemplate.get(UserInfo.class, userId);
+		return user == null? false: true;
+	}
+
 }

@@ -30,9 +30,11 @@ as
   i number;
 begin
   dbms_output.put_line('Start insert data...');
+  delete from bill where bill_id='1';
+  delete from userinfo where user_id='test';
   insert into userinfo values ('test', '123456');
   insert into bill values (1, SYSDATE(), 'test');
-  for i in 1..10000 
+  for i in 1..1000000 
   loop
     insert into bill_line_item values(i, 'itemName'||i, i, 1);
   end loop;
