@@ -13,7 +13,7 @@ CREATE TABLE BILL(
 	CONSTRAINT PK_BILL PRIMARY KEY (BILL_ID)
 );
 
-CREATE TABLE BILL_LINE_ITEM(
+CREATE TABLE LINE_ITEM(
 	ITEM_ID INTEGER NOT NULL,
 	ITEM_NAME VARCHAR2(255) NOT NULL,
 	ITEM_COST NUMBER(*,2) NOT NULL,
@@ -36,7 +36,7 @@ begin
   insert into bill values (1, SYSDATE(), 'test');
   for i in 1..1000000 
   loop
-    insert into bill_line_item values(i, 'itemName'||i, i, 1);
+    insert into line_item values(i, 'itemName'||i, i, 1);
   end loop;
 end;
 /
